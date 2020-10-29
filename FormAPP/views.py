@@ -16,7 +16,7 @@ def id_index(request):
         val = da['values']
         if da['support_multiple']==True:
             for i in range(len(val)):
-                if val[i]['entity_name']=='id':
+                if val[i]['entity_name']==da['type1'][0]:
                     for d in da['support_values']:
                             if(d==val[i]['value']):
                                     li.append(d)  
@@ -35,7 +35,7 @@ def id_index(request):
 
         elif da['pick_first']==True: 
             for i in range(len(val)):
-                if val[i]['entity_name']=='id':
+                if val[i]['entity_name']==da['type1'][0]:
                     for d in da['support_values']:
                             if(d==val[i]['value']):
                                     li.append(d)  
@@ -68,7 +68,7 @@ def age_index(request):
         val = da['values']
         if da['support_multiple']==True:
             for i in range(len(val)):
-                if val[i]['entity_type']=='number':
+                if val[i]['entity_type']==da['type1'][0]:
                     exec("%s = %d" % (da['var_name'],val[i]['value']))
                     if(eval(da['constraint'])):
                         li.append(val[i]['value'])  
@@ -87,7 +87,7 @@ def age_index(request):
 
         elif da['pick_first']==True: 
             for i in range(len(val)):
-                if val[i]['entity_type']=='number':
+                if val[i]['entity_type']==da['type1'][0]:
                     exec("%s = %d" % (da['var_name'],val[i]['value']))
                     if(eval(da['constraint'])):
                         li.append(val[i]['value'])
